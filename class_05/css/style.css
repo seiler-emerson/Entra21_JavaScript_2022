@@ -1,0 +1,11 @@
+img {
+    height: 40px;
+}
+
+footer {
+    text-align: center;
+}
+
+footer::after {
+    content: "© Copyright 2022 | This site is made with ♥ by Emerson Seiler";
+} 
