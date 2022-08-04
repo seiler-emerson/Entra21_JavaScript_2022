@@ -11,14 +11,23 @@ $("form").on("submit", (event) => {
     let dados = obterDados()
     console.log("Recebi",dados);
 
+    console.log("Pessoas antes",pessoas);
     if($("#add").is(":visible")) {
         pessoas.push(dados)
-        console.log(pessoas)
-        escreverTabela()
         console.log("Added")
     } else {
+        pessoas[pessoas.indexOf(update)] = dados
         console.log("Updated")
     }
+    console.log("Pessoas depois",pessoas);
+    escreverTabela()
+    $("#clean").click()
+ })
+
+ $("#clean").on("click", ()=> {
+    $("#add").show()
+    $("#update").hide()
+
  })
 
  function obterDados() {
@@ -44,7 +53,7 @@ function escreverTabela() {
                 $("<td>", {text:pessoa.cidade}),
                 $("<td>").append(
                     $("<button>", {
-                        class: "btn btn-outline-primary",
+                        class: "btn btn-primary me-2",
                         text:"Edit",
                         click: function() {
                             update = pessoa
@@ -55,9 +64,15 @@ function escreverTabela() {
                             $("#update").show()
                         }
                     }),
-                    
+                    $("<button>", {
+                        class: "btn btn-danger me-2",
+                        text:"Delete",
+                        click: function() {
+                            pessoas.splice(pessoas.indexOf(update),1)
+                            escreverTabela()
+                        }
+                    }),
                 ),
-
             )
         )
     });
