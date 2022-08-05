@@ -1,79 +1,92 @@
-$("header .card-body a").attr("class","btn btn-outline-success")
+// $.ajax()
 
-$("#update").hide()
+// $.ajax(
+//     {
 
-let pessoas = []
-let update = null
+//     }
+// )
 
 
-$("form").on("submit", (event) => {
-    event.preventDefault()
-    let dados = obterDados()
-    console.log("Recebi",dados);
+//REQUISIÇÃO PARA IDENTIFICAR IP
+$("#meu_ip").on("click", function () {
+    $.ajax({
+        url: "https://httpbin.org/ip",
+        type: "get",
+        success: function (retorno) {
+            console.log("Opa funcionaou", retorno)
+        },
+        error: function (motivo) {
+            console.log("Deu ruim", motivo)
+        },
+    })
+})
 
-    console.log("Pessoas antes",pessoas);
-    if($("#add").is(":visible")) {
-        pessoas.push(dados)
-        console.log("Added")
-    } else {
-        pessoas[pessoas.indexOf(update)] = dados
-        console.log("Updated")
-    }
-    console.log("Pessoas depois",pessoas);
-    escreverTabela()
-    $("#clean").click()
- })
 
- $("#clean").on("click", ()=> {
-    $("#add").show()
-    $("#update").hide()
+//
+$("#eco_get").on("click", function () {
 
- })
+    // console.log("Normal","https://httpbin.org/get?nome=Emerson Seiler&idade=27");
+    // console.log("Normal",encodeURI("https://httpbin.org/get?nome=Emerson Seiler&idade=27"));
+    // console.log("DECODE",decodeURIComponent("https://httpbin.org/get?nome=Emerson%20Seiler&idade=27"));
+    $.ajax(
+        {
+            url: "https://httpbin.org/get?nome=Emerson Seiler&idade=27",
+            type: "get",
+            success: function (retorno) {
+                console.log("Deu certo", retorno.args)
+            },
+            error: function (motivo) {
+                console.warn("Deu ruim", motivo)
+            },
+        }
+    )
+})
 
- function obterDados() {
-    let nome = $("#nome").val()
-    let idade = $("#idade").val()
-    let cidade = $("#cidade").val()
+$("#delay_get").on("click", () => {
 
-    return {
-        nome: nome,
-        idade: idade,
-        cidade: cidade
-    }
- }
+    let numero = $("#tempo").val()
 
-function escreverTabela() {
-    $("tbody").empty()
-    
-    pessoas.forEach(pessoa => {
-        $("tbody").append(
-            $("<tr>").append(
-                $("<td>", {text:pessoa.nome}),
-                $("<td>", {text:pessoa.idade}),
-                $("<td>", {text:pessoa.cidade}),
-                $("<td>").append(
-                    $("<button>", {
-                        class: "btn btn-primary me-2",
-                        text:"Edit",
-                        click: function() {
-                            update = pessoa
-                            $("#nome").val(pessoa.nome)
-                            $("#idade").val(pessoa.idade)
-                            $("#cidade").val(pessoa.cidade)
-                            $("#add").hide()
-                            $("#update").show()
-                        }
-                    }),
-                    $("<button>", {
-                        class: "btn btn-danger me-2",
-                        text:"Delete",
-                        click: function() {
-                            pessoas.splice(pessoas.indexOf(update),1)
-                            escreverTabela()
-                        }
-                    }),
-                ),
-            )
-        )
-    });
-}
+    $.ajax(
+        {
+            url: encodeURI("https://httpbin.org/delay/" + numero),
+            type: "get",
+            success: (retorno) => {
+                console.log("Demorou mas deu certo");
+            },
+            error: (motivo) => {
+                console.warn("Erro chega rapido como sempre", motivo)
+            }
+        }
+    )
+})
+
+//SINTAXE POST
+
+$("#eco_post").on("click", function () {
+
+    var objeto = {
+        nome: $("#nome").val(),
+        email: $("#email").val()
+    };
+
+    $.ajax({
+        url: "https://httpbin.org/post",
+        type: 'post',
+        headers: {
+            'Accept': "application/json",
+            'Content-type': 'application/json',
+        },
+        data: JSON.stringify(objeto),//converte objeto em string
+        success: function (retorno) {
+            // alert("Veja os dados retornados no console...")
+            console.log("Funcionou", retorno)
+        },
+        error: function (error) {
+            alert("Algo nao esta correto...")
+            console.error(error)
+        }
+    })
+
+})
+
+$("#")
