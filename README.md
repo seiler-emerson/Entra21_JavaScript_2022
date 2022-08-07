@@ -6,13 +6,13 @@ Practical content carried out in the classroom during the Entra21 project.
 
 | CLASS 🖥️ | SUBJECT 📚| <div align="center">▶️</div> |
 |---------|---------|---------|
-|Class 01| Ambiente |[<div align="center">▶️</div>](./class_01/)|
-|Class 02| |[<div align="center">▶️</div>](./class_02/)|
-|Class 03|  |[<div align="center">▶️</div>](./class_03/)|
-|Class 04|  |[<div align="center">▶️</div>](./class_04/)|
-|Class 05|  |[<div align="center">▶️</div>](./class_05/)|
-|Class 06|  |[<div align="center">▶️</div>](./class_06/)|
-|Class 07|  |[<div align="center">▶️</div>](./class_07/)|
-|Class 08|  |[<div align="center">▶️</div>](https://github.com/seiler-emerson/Entra21_Project_EMR_Front_End_2022)|
+|Class 01| Introduction |[<div align="center">▶️</div>](./class_01/)|
+|Class 02| Function |[<div align="center">▶️</div>](./class_02/)|
+|Class 03| Create HTML Element |[<div align="center">▶️</div>](./class_03/)|
+|Class 04| jQuery |[<div align="center">▶️</div>](./class_04/)|
+|Class 05| Pratice - Building pages with jQuery |[<div align="center">▶️</div>](./class_05/)|
+|Class 06| Consuming API |[<div align="center">▶️</div>](./class_06/)|
+|Class 07| Pratice - Consuming API |[<div align="center">▶️</div>](./class_07/)|
+|Class 08|  |[<div align="center">▶️</div>](./class_08)|
 
   ![Gif Entra21](./gif/entra21.gif)
