@@ -42,7 +42,7 @@ let span02 = document.getElementById('alterar_02');
 span02.textContent = "Texto do span 02 alterado";
 
 function mudar_conteudo(conteudo) {
-    let elemento = document.getElementById('qualquer');
+    let elemento = document.getElementById('qualquer');ƒ
 
     elemento.title = conteudo;
     elemento.textContent = conteudo
