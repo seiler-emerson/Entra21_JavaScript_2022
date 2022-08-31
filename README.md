@@ -13,6 +13,6 @@ Practical content carried out in the classroom during the Entra21 project.
 |Class 05| Pratice - Building pages with jQuery |[<div align="center">▶️</div>](./class_05/crud.html)|
 |Class 06| Consuming API |[<div align="center">▶️</div>](./class_06/)|
 |Class 07| Pratice - Consuming API |[<div align="center">▶️</div>](./class_07/)|
-|Class 08|  |[<div align="center">▶️</div>](./class_08)|
+|Class 08| Test |[<div align="center">▶️</div>](https://github.com/seiler-emerson/Entra21_JavaScript_Test_2022)|
 
   ![Gif Entra21](./gif/entra21.gif)
